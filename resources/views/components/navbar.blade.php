@@ -30,6 +30,9 @@
             </li>
         </ul>
     </div>
+    <li class="nav-item mx-3">
+        a class="nav-link" href="{{route('article.create')}}">crear un articulo</a>
+    </li>
 </nav>
 
 
