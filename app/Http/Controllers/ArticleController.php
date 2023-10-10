@@ -4,21 +4,29 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
+public function __construct()
+{
+    $this->middleware('auth')->except('index','show');
+
+
+}
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+    $articles = Article :: orderBy ('created_at','desc')->get();
+    return view('article.index', compact('articles'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
- 
+
     public function create()
     {
         return view('article.create');
@@ -29,7 +37,27 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    $request->validate([
+     'title'=>'required|unique:article|min:5',
+     'subtitle' => 'required|unique:articles|min:5',
+     'body' => 'required|min:10',
+     'image' => 'image |required',
+     'category' => 'required',
+    ]);
+
+        Article::create([
+        'title' => $request->title,
+        'subtitle' => $request->subtitle,
+        'body' => $request-> body,
+        'image' => $request-> file('image')->store('public/image'),
+        'category_id' => $request->category,
+        'user_id' => Auth::user()->id,
+        ]);
+
+
+
+        return redirect(route('homepage'))->with( 'message', 'Artículo creado exitosamente');
+
     }
 
     /**

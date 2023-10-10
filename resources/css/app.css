@@ -1,1 +1,7 @@
 @import '~bootstrap/dist/css/bootstrap';
+
+body {
+    margin-top: 160px; /* Ajusta según sea necesario para evitar la superposición con el footer */
+}
+
+
