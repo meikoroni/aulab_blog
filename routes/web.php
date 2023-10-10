@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\ProfileController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +24,6 @@ Route::post('/article/store', [ArticleController::class, 'store'])->name('articl
 
 Route::get('/article/index', [ArticleController::class, 'index'])->name('article.index');
 
-
+Route::get('/article/show/{article}', [ArticleController::class, 'show'])->name('article.show');
 
 

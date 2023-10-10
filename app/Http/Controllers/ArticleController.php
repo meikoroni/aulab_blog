@@ -65,7 +65,7 @@ public function __construct()
      */
     public function show(Article $article)
     {
-        //
+    return view('article.show', compact('article'));
     }
 
     /**
