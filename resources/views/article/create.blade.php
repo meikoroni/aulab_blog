@@ -26,7 +26,6 @@
                     @csrf
 
                     <div class="mb-3">
-
                         <label for="title" class="form-label">Título: </label>
                         <input name="title" type="text" class="form-control" value="{{old('title')}}">
                     </div>
