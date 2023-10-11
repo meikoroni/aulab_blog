@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
     <a class="navbar-brand" href="#"><img src="{{ asset('images/logo.png') }}" alt="Logo" width="150" height="150"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -29,8 +28,12 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a href="" class="dropdown-item">Perfil</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a href="#" class="dropdown-item" onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Salir</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a href="#" class="dropdown-item"
+                            onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Salir</a>
+                    </li>
                     <form action="{{ route('logout') }}" method="post" id="form-logout" class="d-none">
                         @csrf
                     </form>
@@ -47,10 +50,9 @@
                 </ul>
             </li>
             @endguest
+            <li class="nav-item mx-3">
+                <a class="nav-link" href="{{route('article.create')}}">Crear un articulo</a>
+            </li>
         </ul>
     </div>
-
-    <li class="nav-item mx-3">
-        <a class="nav-link" href="{{route('article.create')}}">Crear un articulo</a>
-    </li>
 </nav>
