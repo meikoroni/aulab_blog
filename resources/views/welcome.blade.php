@@ -27,12 +27,21 @@
                         </div>
                         <div class="card-footer text-muted d-flex justify-content-between align-items-center">
                             Publicado el {{$article->created_at->format('d/m/Y')}} por {{$article->user->name}}
-                            <a href="4" class="btn btn-info text-white">Leer</a>
+                            <a href="{{route('article.show', compact('article'))}}" class="btn btn-info text-white">Leer</a>
                         </div>
+
                     </form>
-                    {{-- <a href="{{route('article.show', compact('article'))}}" class="btn btn-info text-white">Leer</a> --}}
+                    <div class="mt-2">
+                        <a href="{{route ('article.byCategory',['category' => $article->category->id])}}" class="small text-muted fst-italic">
+                            {{ $article->category->name }}
+                        </a>
+                        <a href="{{ route('article.byUser', ['user' => $article->user->id]) }}" class="small text-muted fst-italic">
+                            {{ $article->user->name }}
+                        </a>
+                    </div>
                 </div>
             </div>
+
             @endforeach
         </div>
     </div>

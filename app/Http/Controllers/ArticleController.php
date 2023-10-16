@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\User;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -74,7 +76,7 @@ public function __construct()
      */
     public function edit(Article $article)
     {
-        //
+     return view ('article.edit', compact('article'));
     }
 
     /**
@@ -92,4 +94,19 @@ public function __construct()
     {
         //
     }
+
+public function byCategory(Category $category){
+   $articles= $category->articles->sortByDesc('created_at');
+   return view('article.byCategory', compact('category', 'articles'));
+
+
 }
+
+public function byUser(User $user){
+    $articles = $user->articles->sortByDesc('created_at');
+    return view('article.byUser', compact('user', 'articles'));
+ }
+
+}
+
+
