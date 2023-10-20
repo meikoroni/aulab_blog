@@ -44,6 +44,11 @@
             </div>
         </div>
     </div>
+@if (Auth::user()&& Auth::user()->is_revisor)
+<a href="{{route('revisor.acceptArticle', compact('article'))}}" class="btn btn-sucess text-white my-5">Aceptar</a>
+<a href="{{route('revisor.rejectArticle', compact('article'))}}" class="btn btn-sucess text-white my-5">Rechazar</a>
+@endif
+
 </x-layout>
 
 
