@@ -11,19 +11,17 @@ use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
-public function __construct()
-{
-    $this->middleware('auth')->except('index','show');
-
-
-}
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index','show');
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-    $articles = Article :: where ('is_accepted',true)->orderBy('created_at','desc')->get();
-    return view('article.index', compact('articles'));
+        $articles = Article :: where ('is_accepted',true)->orderBy('created_at','desc')->get();
+        return view('article.index', compact('articles'));
     }
 
     /**
@@ -40,13 +38,13 @@ public function __construct()
      */
     public function store(Request $request)
     {
-    $request->validate([
-     'title'=>'required|unique:article|min:5',
-     'subtitle' => 'required|unique:articles|min:5',
-     'body' => 'required|min:10',
-     'image' => 'image |required',
-     'category' => 'required',
-    ]);
+        $request->validate([
+        'title'=>'required|unique:article|min:5',
+        'subtitle' => 'required|unique:articles|min:5',
+        'body' => 'required|min:10',
+        'image' => 'image |required',
+        'category' => 'required',
+        ]);
 
         Article::create([
         'title' => $request->title,
@@ -57,10 +55,7 @@ public function __construct()
         'user_id' => Auth::user()->id,
         ]);
 
-
-
         return redirect(route('homepage'))->with( 'message', 'Artículo creado exitosamente');
-
     }
 
     /**
@@ -76,7 +71,7 @@ public function __construct()
      */
     public function edit(Article $article)
     {
-     return view ('article.edit', compact('article'));
+        return view ('article.edit', compact('article'));
     }
 
     /**
@@ -95,29 +90,23 @@ public function __construct()
         //
     }
 
-public function byCategory(Category $category){
-   $articles = $user->articles->sortByDesc('created_at')->filter(function($articles){
-    return $article->is_accepted= true;
+    public function byCategory(Category $category)
+    {
+        $articles = $user->articles->sortByDesc('created_at')->filter(function($articles){
+            return $article->is_accepted= true;
+        });
+        return view('article.by-category', compact('category', 'articles'));
+    }
 
-   });
-   return view('article.by-category', compact('category', 'articles'));
-}
+    public function byUser(User $user){
+        $articles = $user->articles->sortByDesc('created_at');
+        return view('article.byUser', compact('user', 'articles'));
+    }
 
-public function byUser(User $user){
-    $articles = $user->articles->sortByDesc('created_at');
-    return view('article.byUser', compact('user', 'articles'));
- }
-
- public function byWriter(User $user){
-    $articles= $user->articles->sortByDesc('created_at')->filter(function($article){
-     return $article->is_accepted= true;
-
-    });
-
-    return view('article.byUser', compact('user', 'articles'));
-}
-
-
-}
-
-
+    public function byWriter(User $user){
+        $articles= $user->articles->sortByDesc('created_at')->filter(function($article){
+        return $article->is_accepted= true;
+        });
+        return view('article.byUser', compact('user', 'articles'));
+    }
+};
