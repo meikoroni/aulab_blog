@@ -62,6 +62,12 @@
             <li class="nav-item mx-3">
                 <a class="nav-link" href="{{route('article.create')}}">Crear un articulo</a>
             </li>
+
+            <form action="{{route('article.search')}}" method="GET" class="d-flex">
+                <input type="search" name="query" placeholder="¿Que estas buscando"class="form-control" aria-label="Search">
+               <button class="btn btn-outline-info" type="submit">Buscar</button>
+            </form>
+            
         </ul>
     </div>
 </nav>
