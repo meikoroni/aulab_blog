@@ -65,15 +65,10 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+    'admin'=> \App\Http\Middleware\UserIsAdmin::class,
+    'revisor' => \App\Http\Middleware\UserIsRevisor::class,
+    'writer' => \App\Http\Middleware\UserIsWriter::class,
     ];
 
 
-protected $routeMiddleware = [
-
-    'admin'=> \App\Http\UserIsAdmin::class,
-    'revisor' => \App\Http\Middleware\UserIsRevisor::class,
-    'writer' => \App\Http\Middleware\UserIsWriter::class,
-
-
-  ];
 }

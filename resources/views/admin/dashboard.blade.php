@@ -89,4 +89,31 @@
         </div>
     </div>
 
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h2>Categorias de la plataforma</h2>
+                <x-metainfo-table : metaInfos="$categories" metaType="categorie" />
+                <form action="" method="" class="d-flex"
+                @csrf
+                <input type="text" name="name" class="form-control me-2">
+                <button type="submit" class="btn btn-success text-white">Actualizar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h2>Tags de la plataforma</h2>
+                <x-metainfo-table : metaInfos="$tags" metaType="tags" />
+            </div>
+        </div>
+    </div>
+
+
 </x-layout>

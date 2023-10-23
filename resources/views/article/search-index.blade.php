@@ -14,6 +14,12 @@
 <div class="card">
 <img src="{{Storage ::url($article->image)}}"alt="..." class="card-img-top">
 
+<p class="small fst-italic">
+  @foreach ($article->tags as $tag)
+    #{{$tag->name}}
+  @endforeach
+</p>
+
 <div class="card-body">
 <h5 class="card-title">{{$article->title}}</h5>
 <p class="card-text">{{$article—>subtitle}}</p>
@@ -30,6 +36,15 @@
 </div>
 </div>
 </div>
+
+@if($article->category)
+<a href="{{route('article.byCategory',['category'=>$article->category->id])}}" class="small text-muted fst-italic">
+  {{$article->category->name}}</a>
+@else
+<p class="small text-muted fst-italic">
+    Sin categoria
+</p>
+@endif
 
 @endforeach
 </div>

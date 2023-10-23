@@ -42,6 +42,15 @@
                 </div>
             </div>
 
+            @if($article->category)
+            <a href="{{route('article.byCategory',['category'=>$article->category->id])}}" class="small text-muted fst-italic">
+              {{$article->category->name}}</a>
+            @else
+            <p class="small text-muted fst-italic">
+                Sin categoria
+            </p>
+            @endif
+
             @endforeach
         </div>
     </div>

@@ -34,6 +34,13 @@
                         <label for="body" class="form-label">Cuerpo del Texto:</label>
                         <p>{{ $article->body }}</p>
                     </div>
+                    <p class="small fst-italic">
+                        @foreach ($article->tags as $tag)
+                          #{{$tag->name}}
+                        @endforeach
+                      </p>
+
+
                     <div class="mt-2">
                         {{-- <a href="{{ route('article.edit', $article->id)
                             class="btn btn-warning text-white">Editar artículo</a>}}" --}}

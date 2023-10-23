@@ -37,6 +37,13 @@
                         <label for="image" class="form-label">Imagen: </label>
                         <input name="image" type="file" class="form-control">
                     </div>
+
+                    <div class="mb-3">
+                        <label for="tags" class="form-label">Etiquetas: </label>
+                        <input name="tags" id="tags" class="form-control" value="{{old('tags')}}">
+                        <span class="small fst-italic">Divide cada etiqueta con una coma</span>
+                    </div>
+                    
                     <div class="mb-3">
                         <label for="category" class="form-label">Categoría: </label>
                         <select name="category" id="category" class="form-control">

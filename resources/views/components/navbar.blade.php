@@ -67,7 +67,12 @@
                 <input type="search" name="query" placeholder="¿Que estas buscando"class="form-control" aria-label="Search">
                <button class="btn btn-outline-info" type="submit">Buscar</button>
             </form>
-            
+
+            @if (Auth::user()->is_writer)
+            <li><a href="{{route('writer.dashboard')}}" class="dropdown-item">Panel de redactor</a></li>
+
+            @endif
+
         </ul>
     </div>
 </nav>
