@@ -2,7 +2,11 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\TrustHosts;
 use App\Http\Middleware\UserIsAdmin;
+use App\Http\Middleware\UserIsRevisor;
+use App\Http\Middleware\UserIsWriter;
+use Illuminate\Http\Middleware\TrustProxies;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -65,9 +69,9 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-    'admin'=> \App\Http\Middleware\UserIsAdmin::class,
-    'revisor' => \App\Http\Middleware\UserIsRevisor::class,
-    'writer' => \App\Http\Middleware\UserIsWriter::class,
+        'admin'=> \App\Http\Middleware\UserIsAdmin::class,
+        'revisor' => \App\Http\Middleware\UserIsRevisor::class,
+        'writer' => \App\Http\Middleware\UserIsWriter::class,
     ];
 
 

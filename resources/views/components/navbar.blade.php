@@ -21,7 +21,6 @@
                 <a class="nav-link" href="#">Craft</a>
             </li>
             @auth
-
             <li class="nav-item">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
@@ -36,16 +35,18 @@
                             onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Salir</a>
                     </li>
                     <form action="{{ route('logout') }}" method="post" id="form-logout" class="d-none">
-
-                    @csrf
+                        @csrf
                     </form>
 
                     @if(Auth::user()->is_admin)
                     <li><a href="{{route('admin.dashboard')}}" class="dropdown-item">Panel de Administración</a></li>
-                      @endif
-                      @if(Auth::user()->is_revisor)
+                    @endif
+                    @if(Auth::user()->is_revisor)
                     <li><a href="{{route('revisor.dashboard')}}" class="dropdown-item">Panel del Revisor</a></li>
-                      @endif
+                    @endif
+                    @if (Auth::user()->is_writer)
+                    <li><a href="{{route('writer.dashboard')}}" class="dropdown-item">Panel de redactor</a></li>
+                    @endif
                 </ul>
             </li>
             @endauth
@@ -62,17 +63,14 @@
             <li class="nav-item mx-3">
                 <a class="nav-link" href="{{route('article.create')}}">Crear un articulo</a>
             </li>
-
-            <form action="{{route('article.search')}}" method="GET" class="d-flex">
-                <input type="search" name="query" placeholder="¿Que estas buscando"class="form-control" aria-label="Search">
-               <button class="btn btn-outline-info" type="submit">Buscar</button>
-            </form>
-
-            @if (Auth::user()->is_writer)
-            <li><a href="{{route('writer.dashboard')}}" class="dropdown-item">Panel de redactor</a></li>
-
-            @endif
-
+            <li>
+                <form action="{{route('article.search')}}" method="GET" class="d-flex">
+                    @csrf
+                    <input type="search" name="query" placeholder="¿Que estas buscando" class="form-control"
+                        aria-label="Search">
+                    <button class="btn btn-outline-info" type="submit">Buscar</button>
+                </form>
+            </li>
         </ul>
     </div>
 </nav>

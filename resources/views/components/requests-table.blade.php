@@ -8,32 +8,27 @@
         </tr>
     </thead>
     </tbody>
-
-    @foreach ($roleRequest as $user )
-    <tr>
-        <th scope="row">{{$user->id}}</th>
-        <td>{{$user->name}}</td>
-        <td>{{$user->email}}</td>
-        <td>
-            <button class="btn btn-info text white">{{$role}} activado</button>
-        </td>
-    </tr>
-    @endforeach
-    <td>
-        @switch($role)
-        @case('administrador')
-        <a href="{{route('admin.setAdmin',compact('user'))}}" class="btn btn-info text-white">{{$role}} activado</a>
-
-        @case('revisor')
-        <a href="{{route('admin.setRevisor',compact('user'))}}" class="btn btn-info text-white">{{$role}} activado</a>
-
-        @case('redactor')
-        <a href="{{route('admin.setRedactor',compact('user'))}}" class="btn btn-info text-white">{{$role}} activado</a>
-        @break
-
-        @default
-
-        @endswitch
-    </td>
+        <tr>
+            @foreach ($roleRequest as $user )
+                <th scope="row">{{$user->id}}</th>
+                <td>{{$user->name}}</td>
+                <td>{{$user->email}}</td>
+                <td>
+                    <button class="btn btn-info text white">{{$role}} activado</button>
+                </td>
+            @endforeach
+            <td>
+                @switch($role)
+                @case('administrador')
+                <a href="{{route('admin.setAdmin',compact('user'))}}" class="btn btn-info text-white">{{$role}} activado</a>
+                @case('revisor')
+                <a href="{{route('admin.setRevisor',compact('user'))}}" class="btn btn-info text-white">{{$role}} activado</a>
+                @case('redactor')
+                <a href="{{route('admin.setRedactor',compact('user'))}}" class="btn btn-info text-white">{{$role}} activado</a>
+                @break
+                @default
+                @endswitch
+            </td>
+        </tr>
     </tbody>
 </table>
