@@ -42,7 +42,7 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <h2>Articulos para revisar</h2>
-                <x-articles-table :articles="$unrevisionedArticles"  />
+                <x-articles-table :articles="$unrevisionedArticles" />
             </div>
         </div>
     </div>
@@ -52,7 +52,7 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <h2>Articulos publicados</h2>
-                <x-articles-table :articles="$acceptedArticles"  />
+                <x-articles-table :articles="$acceptedArticles" />
             </div>
         </div>
     </div>
@@ -62,7 +62,7 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <h2>Articulos rechazados</h2>
-                <x-articles-table :articles="$rejectedArticles"  />
+                <x-articles-table :articles="$rejectedArticles" />
             </div>
         </div>
     </div>
@@ -76,10 +76,6 @@
         </div>
     </div>
 
-
-
-
-
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12">
@@ -89,22 +85,17 @@
         </div>
     </div>
 
-
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12">
                 <h2>Categorias de la plataforma</h2>
                 <x-metainfo-table : metaInfos="$categories" metaType="categorie" />
-                <form action="" method="" class="d-flex"
-                @csrf
-                <input type="text" name="name" class="form-control me-2">
-                <button type="submit" class="btn btn-success text-white">Actualizar</button>
+                <form action="" method="" class="d-flex" @csrf <input type="text" name="name" class="form-control me-2">
+                    <button type="submit" class="btn btn-success text-white">Actualizar</button>
                 </form>
             </div>
         </div>
     </div>
-
-
 
     <div class="container my-5">
         <div class="row justify-content-center">
@@ -114,6 +105,5 @@
             </div>
         </div>
     </div>
-
 
 </x-layout>

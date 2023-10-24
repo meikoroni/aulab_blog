@@ -59,12 +59,10 @@ class ArticleController extends Controller
         $tags=explode(',',$request->tags);
 
         foreach($tags as $tag){
-          $newTag= Tag::updateOrCreate([
-            'name'=> $tag,
-          ]);
-         $article->tags()->attach($newTag);
-
-
+            $newTag= Tag::updateOrCreate([
+                'name'=> $tag,
+            ]);
+            $article->tags()->attach($newTag);
         }
 
         return redirect(route('homepage'))->with( 'message', 'Artículo creado exitosamente');
