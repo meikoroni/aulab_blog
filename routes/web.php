@@ -27,33 +27,18 @@ Route::get('/article/category/{category}', [ArticleController::class, 'byCategor
 Route::get('/article/user/{user}', [ArticleController::class, 'byUser'])->name('article.byUser');
 Route::get('/articles/{article}/edit', [ArticleController::class, 'edit'])->name('article.edit');
 Route::get('/careers', [PublicController::class, 'careers'])->name('careers');
-Route::get('/careers', [PublicController::class, 'careersSubmit'])->name('careers.submit');
+Route::get('/careers/submit', [PublicController::class, 'careersSubmit'])->name('careers.submit');
 
 Route::middleware('admin')->group (function(){
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-});
-
-Route::middleware('admin')->group(function(){
     Route::get('/admin/{user}/set-admin', [AdminController::class, 'setAdmin'])->name('admin.setAdmin');
-});
-
-Route::middleware('admin')->group(function(){
     Route::get('/admin/{user}/set-revisor', [AdminController::class, 'setRevisor'])->name('admin.setRevisor');
-});
-
-Route::middleware('admin')->group(function(){
     Route::get('/admin/{user}/set-redactor', [AdminController::class, 'setRedactor'])->name('admin.setRedactor');
 });
 
 Route::middleware('revisor')->group(function(){
     Route::get('/revisor/dashboard', [RevisorController::class, 'dashboard'])->name('revisor.dashboard');
-});
-
-Route::middleware('revisor')->group(function(){
     Route::get('/revisor/{article}/accept', [RevisorController::class, 'acceptArticle'])->name('revisor.acceptArticle');
-});
-
-Route::middleware('revisor')->group(function(){
     Route::get('/revisor/{article}/reject', [RevisorController::class, 'rejectArticle'])->name('revisor.rejectArticle');
 });
 

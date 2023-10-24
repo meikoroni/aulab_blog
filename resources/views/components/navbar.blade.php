@@ -61,7 +61,7 @@
             </li>
             @endguest
             <li class="nav-item mx-3">
-                <a class="nav-link" href="{{route('article.create')}}">Crear un articulo</a>
+                <a class="nav-link" href="{{ route('article.create') }}">Crear un articulo</a>
             </li>
             <li>
                 <form action="{{route('article.search')}}" method="GET" class="d-flex">
@@ -71,6 +71,7 @@
                     <button class="btn btn-outline-info" type="submit">Buscar</button>
                 </form>
             </li>
+            <li><a href="{{route('careers')}}"" class="dropdown-item">Trabaja con nosotros</a></li>
         </ul>
     </div>
 </nav>
