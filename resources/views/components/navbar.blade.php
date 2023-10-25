@@ -4,8 +4,6 @@
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
-
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
@@ -61,7 +59,7 @@
             </li>
             @endguest
             <li class="nav-item mx-3">
-                <a class="nav-link" href="{{ route('article.create') }}">Crear un articulo</a>
+                <a class="nav-link" href="{{route('article.create')}}">Crear un articulo</a>
             </li>
             <li>
                 <form action="{{route('article.search')}}" method="GET" class="d-flex">
@@ -71,7 +69,7 @@
                     <button class="btn btn-outline-info" type="submit">Buscar</button>
                 </form>
             </li>
-            <li><a href="{{route('careers')}}"" class="dropdown-item">Trabaja con nosotros</a></li>
+            <li><a href="{{route('careers')}}" class="dropdown-item">Trabaja con nosotros</a></li>
         </ul>
     </div>
 </nav>

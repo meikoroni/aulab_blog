@@ -18,8 +18,8 @@ class UserIsWriter
     {
         if(Auth::user()&& Auth::user()->is_writer){
         return $next($request);
-    }
-    return redirect(route('homepage'))->with('message','No estas autorizado');
-}
+        }
+        return redirect(route('homepage'))->with('message','No estas autorizado');
+    }  
 
 }
