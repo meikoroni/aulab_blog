@@ -45,10 +45,17 @@ class CareerRequestMail extends Mailable
     /**
      * Get the attachments for the message.
      *
-  
+
      */
     public function attachments()
     {
         return [];
     }
+
+    public function build()
+    {
+        return $this->view('career-request-mail');
+    }
+
+
 }

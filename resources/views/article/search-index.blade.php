@@ -32,7 +32,7 @@
 <div class="card-footer text-muted d-flex justify-content-between align-items-center">
 <a href="{{route('article.byUser', ['user' => $article->user->id])}}"> Escrito el {{$article->created_at->format('d/m/Y')}} por{{$article->user->name}}</a>
 
-<a href="{{route('article.show', compact('article'))}}” class="btn btn-info text-white" >Leer</a>
+<a href= "{{route('article.show', compact('article'))}}” class="btn btn-info text-white">Leer</a>
 </div>
 </div>
 </div>

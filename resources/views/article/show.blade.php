@@ -41,8 +41,8 @@
 
 
                     <div class="mt-2">
-                        {{-- <a href="{{ route('article.edit', $article->id)
-                            class="btn btn-warning text-white">Editar artículo</a>}}" --}}
+                         <a href="{{ route('article.edit', $article->id)
+                            class="btn btn-warning text-white">Editar artículo</a>}}"
                          <a href="{{ route('homepage') }}" class="btn btn-outline-info">Volver a inicio</a>
                     </div>
 

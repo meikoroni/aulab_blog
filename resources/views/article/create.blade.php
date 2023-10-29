@@ -34,7 +34,7 @@
                         <input name="image" type="file" class="form-control">
                     </div>
                     <div class="mb-3">
-                        <label for="tags" class="form-label">Etiquetas: </label>
+                        <label for="tags" class="form-label">Etiquetas:</label>
                         <input name="tags" id="tags" class="form-control" value="{{old('tags')}}">
                         <span class="small fst-italic">Divide cada etiqueta con una coma</span>
                     </div>

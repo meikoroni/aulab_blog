@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
     <a class="navbar-brand" href="#"><img src="{{ asset('images/logo.png') }}" alt="Logo" width="150" height="150"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +25,8 @@
                     Bienvenido {{ Auth::user()->name }}
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a href="" class="dropdown-item">Perfil</a></li>
+                    <li><a href="{{route('profile.show')}}" class="dropdown-item">Perfil</a></li>
+
                     <li>
                         <hr class="dropdown-divider">
                     </li>
@@ -61,15 +62,26 @@
             <li class="nav-item mx-3">
                 <a class="nav-link" href="{{route('article.create')}}">Crear un articulo</a>
             </li>
-            <li>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="{{ route('careers') }}" class="nav-link">Trabaja con nosotros</a>
+                </li>
+            </ul>
+
+
+            <li class="nav-item ml-auto">
                 <form action="{{route('article.search')}}" method="GET" class="d-flex">
                     @csrf
-                    <input type="search" name="query" placeholder="¿Que estas buscando" class="form-control"
+                    <input type="search" name="query" placeholder="¿Que estas buscando?" class="form-control"
                         aria-label="Search">
                     <button class="btn btn-outline-info" type="submit">Buscar</button>
                 </form>
             </li>
-            <li><a href="{{route('careers')}}" class="dropdown-item">Trabaja con nosotros</a></li>
+
+
+
+
         </ul>
     </div>
 </nav>

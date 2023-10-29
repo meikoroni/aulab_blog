@@ -12,6 +12,16 @@ class Article extends Model
 {
     use HasFactory, Searchable;
 
+    public function toSearchableArray()
+    {
+        return[
+            'id'=>$this->id,
+            'title'=>$this->title,
+            'body'=>$this->body,
+            'category'=>$this->category,
+        ];
+    }
+
     protected $fillable=[
         'title',
         'subtitle',
@@ -28,15 +38,7 @@ class Article extends Model
     public function category(){
       return $this->belongsTo(Category::class);
     }
-    public function toSearchableArray()
-    {
-        return[
-            'id'=>$this->id,
-            'title'=>$this->title,
-            'body'=>$this->body,
-            'category'=>$this->category,
-        ];
-    }
+
     public function tags(){
         return $this->belongsToMany(Tag::class);
     }

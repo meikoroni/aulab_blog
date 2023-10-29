@@ -8,12 +8,14 @@
         </tr>
     </thead>
     </tbody>
-    <tr>
+
         @foreach ($roleRequests as $user)
+        <tr>
         <th scope="row">{{$user->id}}</th>
         <td>{{$user->name}}</td>
         <td>{{$user->email}}</td>
         <td>
+            <button class="btn btn-info text-white">{{$role}} activado</button>
             @switch($role)
             @case('administrador')
             <a href="{{route('admin.setAdmin',compact('user'))}}" class="btn btn-info text-white">{{$role}} activado</a>

@@ -1,7 +1,43 @@
 @import '~bootstrap/dist/css/bootstrap';
 
-body {
-    margin-top: 160px; /* Ajusta según sea necesario para evitar la superposición con el footer */
+.custom-mt {
+    margin-top: 20cm; /* Ajusta el valor según tus necesidades */
 }
+
+
+
+.navbar {
+    background-color: #ee66ca;
+    color: #671f1f;
+}
+
+.navbar-brand, .nav-link {
+    color: #080606;
+}
+
+.nav-link:hover {
+    color: #027070;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+p {
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+button, .btn {
+    background-color: #499ae0;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+}
+
+button:hover, .btn:hover {
+    background-color: #ce1c8a;
+}
+
 
 

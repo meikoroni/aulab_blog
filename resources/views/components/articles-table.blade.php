@@ -8,9 +8,8 @@
         <th scope="col">Accion</th>
     </tr>
   </thead>
-
-
 <tbody>
+    
     @foreach ($articles as $article )
 <tr>
     <th scope="row">{{$article->id}}</th>

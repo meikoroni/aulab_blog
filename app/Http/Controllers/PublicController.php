@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Mail;
 class PublicController extends Controller
 {
     public function homepage(){
-      $articles= Article::where('is_accepted', true)->orderBy('created_at', 'desc')->take(4)->get();
+      $articles= Article::where('is_accepted', true)->orderBy('created_at','desc')->take(4)->get();
       return view('welcome', compact('articles'));
     }
 
@@ -30,6 +30,9 @@ class PublicController extends Controller
             'email'=> 'required|email',
             'message'=>'required',
         ]);
+        // dd($request->all());
+
+
         $user = Auth::user();
         $role =$request->role;
         $email =$request->email;
@@ -50,7 +53,9 @@ class PublicController extends Controller
             $user-> is_writer = NULL;
             break;
         }
+
         $user->update();
+
         return redirect(route('homepage'))->with('message','Gracias por haber contactado con nosotros');
     }
 };
